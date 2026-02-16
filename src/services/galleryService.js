@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/manora/gallery';
+const API_URL = `${import.meta.env.VITE_API_URL}/manora/gallery`;
 
 export const uploadPhoto = async (formData, token) => {
     const config = {
