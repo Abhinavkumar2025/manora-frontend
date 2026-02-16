@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const fetchUser = (token) => {
         setLoading(true);
         axios
-            .get("http://localhost:5000/manora/auth/me", {
+            .get(`${import.meta.env.VITE_API_URL}/manora/auth/me`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
