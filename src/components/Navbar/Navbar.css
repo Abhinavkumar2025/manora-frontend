@@ -1,0 +1,19 @@
+.navbar {
+    height: 80px;
+    background-color: rgb(255, 253, 242);
+}
+#title-name{
+    font-family: "Poppins";
+}
+
+ul{
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+}
+
+.search-bar button,input{
+    border-radius: 5px;
+}

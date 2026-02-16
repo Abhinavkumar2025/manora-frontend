@@ -1,0 +1,21 @@
+.container-outer{
+    /* background-image: url("../../assets/images/intro_section_bg_3.png"); */
+    /* background-size: cover; */
+    /* background-color: black; */
+    font-family: "Montserrat" ;
+}
+
+/* .glass {
+    background: rgb(0, 56, 71);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 4px solid rgba(7, 4, 4);
+} */
+
+
+.lost_card{
+    font-family: "Montserrat";
+}

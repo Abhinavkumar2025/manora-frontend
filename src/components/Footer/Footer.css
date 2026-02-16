@@ -1,0 +1,27 @@
+.footer {
+    background-color: rgba(255, 253, 242, 0.866);
+    height: 270px;
+}
+
+#f_descp h2 {
+    color: #878787;
+}
+
+#f_descp {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#f_about_contact a {
+    text-decoration: none;
+    color: black;
+}
+
+#f_about_contact h4 {
+    color: #878787;
+}
+
+#f_about_contact p {
+    color: black;
+}

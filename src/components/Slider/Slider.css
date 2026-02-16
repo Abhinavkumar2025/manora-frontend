@@ -1,0 +1,43 @@
+.fade-slider {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.embla {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+    height: 100%;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+/* 🔥 Default slide (not active) */
+.embla__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    /* fully faded */
+    transition: opacity 1s ease;
+}
+
+/* 🔥 Active slide (fade in) */
+.embla__slide.is-selected img {
+    opacity: 1;
+    /* fully visible */
+}

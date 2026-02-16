@@ -1,0 +1,205 @@
+body {
+    overflow-x: hidden;
+}
+
+h1{
+    font-family: "BBH Bogle","Montserrat";
+}
+p{
+    font-family: "Montserrat","BBH Bogle";
+}
+
+.heading-1{
+    font-size: 75px;
+    /* font-weight: 300; */
+}
+
+.sub-heading-1{
+    font-size: 30px;
+}
+
+.main_div {
+    background-image: url('../../assets/images/beautiful-shining-stars-night-sky.jpg');
+    background-size: cover;
+}
+
+.background_report{
+    background-image: url('../../assets/images/bg_lost_found_2.png');
+    background-size: cover;
+}
+
+.background_report_btn{
+    background-color: rgba(3, 131, 170, 0.855);
+    font-family: "Montserrat", "BBH Bogle";
+    font-size: 18px;
+}
+
+.background_report_btn:hover{
+    background-color: rgb(5, 205, 255);;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255,0.2);
+}
+
+.report_form{
+    background-color: #849cff;
+    /* background-image: url("../../assets/images/lost_found_bg_2.png"); */
+    /* background-size: cover; */
+    /* color: rgb(241, 255, 165); */
+}
+
+.report_form h2{
+    color: rgb(0, 3, 93);
+    font-weight: 700;
+}
+
+.report_form button{
+    font-family: "Montserrat", "BBH Bogle";
+    background-color: rgb(0, 3, 93);
+}
+
+.report_form button:hover {
+    font-family: "Montserrat", "BBH Bogle";
+    background-color: #03676c;
+}
+
+.report_form_heading{
+    /* background-image: url("../../assets/images/los");
+    background-size: cover; */
+    font-family: "Montserrat","BBH Bogle";
+    font-weight: 800;
+    /* letter-spacing: px; */
+}
+
+.report_section_left{
+    font-family: "Montserrat","BBH Bogle";
+    color:rgb(0, 3, 93);
+}
+
+.report_section_left h2{
+    font-weight: 700;
+}
+
+.report_section_left p{
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.no-stars {
+    background-image: none;
+    /* background-color: white; */
+}
+
+.blue_water{
+    background: rgba(135, 134, 134, 0.664);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* border-radius: 20px; */
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+.search_item{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.found_items_search{
+    background-color:rgb(255,255,255);
+}
+
+.found_items h2{
+    font-family: "Montserrat", "BBH Bogle";
+    font-weight: 700;
+}
+
+.found_items .title{
+    font-family: "Montserrat", "BBH Bogle";
+    font-weight: 800;
+    font-size: 50px;
+    /* margin-top: 40px; */
+    /* margin-right:; */
+}
+
+.found_left_side{
+    background-image: url("../../assets/images/found_left_bg_5.jpg");
+    opacity: 0.9;
+    
+}
+
+.glass_2 {
+    background: rgba(1, 31, 57, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(18, 11, 11, 0.2);
+}
+
+.found_right_side{
+    background-color: rgb(62, 62, 62);
+}
+
+.something{
+    background-image: url("../../assets/images/photo_gallery_bg_1.png");
+}
+
+.hanging_board {
+    position: relative;
+    display: inline-block;
+}
+
+/* 2 hanging lines */
+.hanging_board::before,
+.hanging_board::after {
+    content: "";
+    position: absolute;
+    top: -70px;
+    /* how much line goes up */
+    width: 3px;
+    height: 70px;
+    /* line length */
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+/* left line */
+.hanging_board::before {
+    left: 25%;
+}
+
+/* right line */
+.hanging_board::after {
+    right: 25%;
+}
+
+/* small pin/circle on glass top (optional but looks real) */
+.glass_2 {
+    position: relative;
+}
+
+.glass_2::before,
+.glass_2::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 14px;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+}
+
+/* left pin */
+.glass_2::before {
+    left: 23%;
+}
+
+/* right pin */
+.glass_2::after {
+    right: 23%;
+}
