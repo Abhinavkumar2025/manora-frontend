@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/manora/albums';
+const API_URL = `${import.meta.env.VITE_API_URL}/manora/albums`;
 
 export const createAlbum = async (albumData, token) => {
     const config = {
