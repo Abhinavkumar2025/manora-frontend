@@ -125,14 +125,14 @@ const Login = () => {
                 <div className="flex gap-4">
                     <button
                         type="button"
-                        onClick={() => window.location.href = "http://localhost:5000/manora/auth/google"}
+                        onClick={() => window.location.href = `${import.meta.env.VITE_API_URL}/manora/auth/google`}
                         className="flex-1 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white py-2.5 rounded-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                         <FcGoogle className="text-red-500" /> Google
                     </button>
                     <button
                         type="button"
-                        onClick={() => window.location.href = "http://localhost:5000/manora/auth/github"}
+                        onClick={() => window.location.href = `${import.meta.env.VITE_API_URL}/manora/auth/github`}
                         className="flex-1 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white py-2.5 rounded-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                         <FaGithub className="text-white" /> GitHub

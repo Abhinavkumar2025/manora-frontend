@@ -13,7 +13,7 @@ const Lost_And_Found = () => {
 
   useEffect(() => {
     const fetchReports = async () => {
-      const res = await fetch("http://localhost:5000/manora/report");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/manora/report`);
       const data = await res.json();
       setReports(data);
     };
