@@ -38,18 +38,21 @@ export default function Navbar() {
   return (
     <div className='navbar relative z-50 h-[80px] flex items-center justify-between px-4 shadow-sm'>
 
-      {/* Logo */}
-      <div id='title-name' className='text-4xl font-bold ps-4'>
-        <Link className="text-black" to="/">Manora</Link>
-      </div>
+      {/* Left Side: Logo & Desktop Menu */}
+      <div className="flex items-center gap-8">
+        {/* Logo */}
+        <div id='title-name' className='text-4xl font-bold text-black'>
+          <Link className="text-black" to="/">Manora</Link>
+        </div>
 
-      {/* Desktop Menu */}
-      <div className='hidden md:flex'>
-        <ul className='flex gap-8 items-center'>
-          <li><Link className='text-black font-semibold text-lg' to='/'>Home</Link></li>
-          <li><Link className='text-black font-semibold text-lg' to={'/lost-and-found'}>Lost & Found</Link></li>
-          <li><Link className='text-black font-semibold text-lg' to={'/manora/gallery'}>Photo Gallery</Link></li>
-        </ul>
+        {/* Desktop Menu */}
+        <div className='hidden md:flex'>
+          <ul className='flex gap-8 items-center m-0 p-0'>
+            <li><Link className='text-black font-semibold text-lg' to='/'>Home</Link></li>
+            <li><Link className='text-black font-semibold text-lg' to={'/lost-and-found'}>Lost & Found</Link></li>
+            <li><Link className='text-black font-semibold text-lg' to={'/manora/gallery'}>Photo Gallery</Link></li>
+          </ul>
+        </div>
       </div>
 
       {/* Right Side (User & Mobile Toggle) */}
