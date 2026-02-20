@@ -47,7 +47,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className='hidden md:flex'>
-          <ul className='flex gap-8 items-center m-0 p-0'>
+          <ul className='flex gap-8 justify-center items-center m-0 p-0'>
             <li><Link className='text-black font-semibold text-lg' to='/'>Home</Link></li>
             <li><Link className='text-black font-semibold text-lg' to={'/lost-and-found'}>Lost & Found</Link></li>
             <li><Link className='text-black font-semibold text-lg' to={'/manora/gallery'}>Photo Gallery</Link></li>
