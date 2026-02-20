@@ -40,7 +40,7 @@ export default function Navbar() {
 
       {/* Logo */}
       <div id='title-name' className='text-4xl font-bold ps-4'>
-        <Link to="/">Manora</Link>
+        <Link className="text-black" to="/">Manora</Link>
       </div>
 
       {/* Desktop Menu */}
