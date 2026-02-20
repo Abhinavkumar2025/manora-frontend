@@ -2,18 +2,21 @@ import { useState, useRef, useEffect } from "react";
 import './Navbar.css';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { FiChevronDown, FiUser, FiLogOut, FiSettings } from "react-icons/fi";
+import { FiChevronDown, FiUser, FiLogOut, FiSettings, FiMenu, FiX } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const menuRef = useRef(null);
 
   const handleLogout = () => {
     logout();
     navigate("/");
+    setIsMenuOpen(false);
   };
 
   // Close dropdown when clicking outside
@@ -21,6 +24,9 @@ export default function Navbar() {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false);
+      }
+      if (menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest('button')) {
+        // Optional: Close mobile menu on click outside, but usually clicking a link does it.
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -30,23 +36,31 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className='navbar absolute z-50 h-100 py-3'>
-      <div id='title-name' className='text-4xl font-bold ps-4'>Manora</div>
-      <div className='flex'>
-        <ul className='my-auto flex gap-4'>
-          <li><Link className='text-black font-semibold text-lg' to='/'>Home</Link></li>
-          <li><Link className='text-black font-semibold text-lg' to={'/lost-and-found'}>Lost & Found</Link></li>
-          <li><Link className='text-black font-semibold text-lg' to={'/manora/gallery'}>Photo Gallery</Link></li>
+    <div className='navbar relative z-50 h-[80px] flex items-center justify-between px-4 shadow-sm'>
+
+      {/* Logo */}
+      <div id='title-name' className='text-4xl font-bold text-blue-950'>
+        <Link to="/">Manora</Link>
+      </div>
+
+      {/* Desktop Menu */}
+      <div className='hidden md:flex'>
+        <ul className='flex gap-8 items-center'>
+          <li><Link className='text-gray-700 hover:text-blue-900 font-semibold text-lg transition-colors' to='/'>Home</Link></li>
+          <li><Link className='text-gray-700 hover:text-blue-900 font-semibold text-lg transition-colors' to={'/lost-and-found'}>Lost & Found</Link></li>
+          <li><Link className='text-gray-700 hover:text-blue-900 font-semibold text-lg transition-colors' to={'/manora/gallery'}>Photo Gallery</Link></li>
         </ul>
       </div>
 
-      {/* Right Side */}
-      <div className="flex gap-4 items-center pr-4">
+      {/* Right Side (User & Mobile Toggle) */}
+      <div className="flex gap-4 items-center">
+
+        {/* User Profile / Login */}
         {user ? (
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowDropdown(!showDropdown)}
-              className="flex items-center gap-2 focus:outline-none bg-blue-950 p-1 pr-2  rounded border border-blue-800 shadow-md hover:shadow-lg transition-all duration-300"
+              className="flex items-center gap-2 focus:outline-none bg-blue-950 p-1 pr-2 rounded-lg border border-blue-800 shadow-md hover:shadow-lg transition-all duration-300"
             >
               <div className="relative">
                 {user.avatar ? (
@@ -64,7 +78,7 @@ export default function Navbar() {
                 <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-blue-900 rounded-full"></div>
               </div>
 
-              <span className="font-medium text-white text-sm hidden sm:block max-w-[100px] truncate">
+              <span className="font-medium text-white text-sm hidden lg:block max-w-[100px] truncate">
                 {user.name?.split(' ')[0]}
               </span>
 
@@ -92,15 +106,15 @@ export default function Navbar() {
 
                   <div className="py-2">
                     <button
-                      className="w-full text-left px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 rubik flex items-center gap-3 transition-colors"
-                      onClick={() => alert("Profile settings not implemented yet.")}
+                      className="w-full text-left px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 flex items-center gap-3 transition-colors"
+                      onClick={() => { setShowDropdown(false); alert("Profile settings not implemented yet."); }}
                     >
                       <FiUser className="text-gray-400" size={16} />
                       <span>My Profile</span>
                     </button>
                     <button
-                      className="w-full text-left px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 rubik flex items-center gap-3 transition-colors"
-                      onClick={() => alert("Settings not implemented yet.")}
+                      className="w-full text-left px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 flex items-center gap-3 transition-colors"
+                      onClick={() => { setShowDropdown(false); alert("Settings not implemented yet."); }}
                     >
                       <FiSettings className="text-gray-400" size={16} />
                       <span>Settings</span>
@@ -121,23 +135,84 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
         ) : (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Link
               to="/login"
-              className="px-4 py-2 font-bold text-white bg-blue-900 rounded-md shadow-md hover:shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300"
+              className="px-3 sm:px-4 py-2 font-bold text-white bg-blue-900 rounded-md shadow-md hover:shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base"
             >
               Login
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               to="/signup"
-              className="px-5 py-2 font-bold text-white bg-blue-900 rounded-md shadow-md hover:shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300"
+              className="hidden sm:inline-block px-5 py-2 font-bold text-white bg-blue-900 rounded-md shadow-md hover:shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300"
             >
               Sign Up
             </Link>
           </div>
         )}
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-blue-950 p-2 focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-[80px] left-0 w-full bg-[#fffdf2] border-t border-gray-200 shadow-lg md:hidden z-40 overflow-hidden"
+          >
+            <ul className="flex flex-col p-4 gap-4 items-center">
+              <li className="w-full text-center">
+                <Link
+                  className='block w-full py-2 text-gray-800 font-semibold text-lg hover:bg-blue-50 rounded-lg transition-colors'
+                  to='/'
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="w-full text-center">
+                <Link
+                  className='block w-full py-2 text-gray-800 font-semibold text-lg hover:bg-blue-50 rounded-lg transition-colors'
+                  to='/lost-and-found'
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Lost & Found
+                </Link>
+              </li>
+              <li className="w-full text-center">
+                <Link
+                  className='block w-full py-2 text-gray-800 font-semibold text-lg hover:bg-blue-50 rounded-lg transition-colors'
+                  to='/manora/gallery'
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Photo Gallery
+                </Link>
+              </li>
+              {!user && (
+                <li className="w-full text-center sm:hidden">
+                  <Link
+                    className='block w-full py-2 text-blue-900 font-bold text-lg hover:bg-blue-50 rounded-lg transition-colors'
+                    to='/signup'
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
