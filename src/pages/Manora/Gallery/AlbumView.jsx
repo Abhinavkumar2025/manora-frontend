@@ -72,25 +72,25 @@ const AlbumView = () => {
     const { album, photos } = currentAlbum;
 
     return (
-        <div className="w-full m-0 px-4 py-8 min-h-screen bg-white">
-            <Link to="/manora/gallery" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 ">
+        <div className="w-full m-0 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 min-h-screen bg-white">
+            <Link to="/manora/gallery" className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-600 mb-6 transition-colors">
                 <FiArrowLeft /> Back to Albums
             </Link>
 
-            <div className="bg-gray-900 rounded-xl p-8 mb-8 border border-gray-800">
-                <div className="flex justify-between items-start flex-wrap gap-4">
-                    <div>
-                        <h1 className="text-4xl font-bold text-white title mb-4">{album.title}</h1>
-                        <p className="text-gray-300 text-lg leading-relaxed max-w-4xl">{album.description}</p>
+            <div className="bg-gray-900 rounded-xl p-5 sm:p-8 mb-6 sm:mb-8 border border-gray-800">
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-4">
+                    <div className="w-full lg:w-auto">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white title mb-3 sm:mb-4">{album.title}</h1>
+                        <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-4xl">{album.description}</p>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                         {/* Action Buttons */}
                         {isSelectMode ? (
                             <>
                                 <button
                                     onClick={handleDeleteSelected}
                                     disabled={selectedPhotos.length === 0}
-                                    className={`px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all ${selectedPhotos.length === 0
+                                    className={`w-full sm:w-auto px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all ${selectedPhotos.length === 0
                                         ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
                                         : 'bg-red-600 hover:bg-red-700 text-white shadow-lg'
                                         }`}
@@ -99,7 +99,7 @@ const AlbumView = () => {
                                 </button>
                                 <button
                                     onClick={toggleSelectMode}
-                                    className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold flex items-center gap-2"
+                                    className="w-full sm:w-auto px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2"
                                 >
                                     <FiX /> Cancel
                                 </button>
@@ -108,21 +108,21 @@ const AlbumView = () => {
                             <>
                                 <Link
                                     to={`/manora/gallery/${id}/upload`}
-                                    className="px-6 py-3 bg-blue-700 hover:bg-blue-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
+                                    className="w-full sm:w-auto px-6 py-3 bg-blue-700 hover:bg-blue-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-blue-500/20 flex items-center justify-center gap-2"
                                 >
                                     <FiPlus /> Add Photos
                                 </Link>
                                 {photos.length > 0 && (
                                     <button
                                         onClick={toggleSelectMode}
-                                        className="px-6 py-3 bg-gray-500 hover:bg-gray-400 text-white font-semibold flex items-center gap-2"
+                                        className="w-full sm:w-auto px-6 py-3 bg-gray-500 hover:bg-gray-400 text-white font-semibold flex items-center justify-center gap-2"
                                     >
                                         <FiCheckSquare /> Select
                                     </button>
                                 )}
                                 <button
                                     onClick={handleDeleteAlbum}
-                                    className="px-6 py-3 bg-red-800 hover:bg-red-700 text-red-200 hover:text-white border border-red-800 rounded-xl font-semibold flex items-center gap-2 transition-colors"
+                                    className="w-full sm:w-auto px-6 py-3 bg-red-800 hover:bg-red-700 text-red-200 hover:text-white border border-red-800 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors"
                                 >
                                     <FiTrash2 /> Delete Album
                                 </button>

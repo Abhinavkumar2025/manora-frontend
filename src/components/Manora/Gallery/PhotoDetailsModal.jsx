@@ -58,7 +58,7 @@ const PhotoDetailsModal = ({ photo, isOpen, onClose }) => {
                         </div>
 
                         {/* Details Section */}
-                        <div className="w-full md:w-1/3 p-6 flex flex-col border-l border-gray-800">
+                        <div className="w-full md:w-1/3 p-6 flex flex-col border-t md:border-t-0 md:border-l border-gray-800">
                             <h2 className="text-2xl font-bold text-white mb-6">Photo Details</h2>
 
                             <div className="space-y-6 flex-1">

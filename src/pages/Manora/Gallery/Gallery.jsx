@@ -23,18 +23,18 @@ const Gallery = () => {
     }
 
     return (
-        <div className=" w-full bg-slate-50 px-4 py-8 min-h-screen text-black">
-            <div className="flex justify-between items-center mb-8">
-                <div className='heading_gallery'>
-                    <h1 className="text-3xl mb-2">My Trips</h1>
-                    <p className="text-gray-400">Collections of your travel memories</p>
+        <div className="w-full bg-slate-50 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 min-h-screen text-black">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6 sm:mb-8">
+                <div className='heading_gallery w-full sm:w-auto text-left'>
+                    <h1 className="text-3xl sm:text-4xl font-bold mb-2">My Trips</h1>
+                    <p className="text-sm sm:text-base text-gray-500">Collections of your travel memories</p>
                 </div>
                 <Link
                     to="/manora/gallery/create"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-800 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-blue-500/20"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-800 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-blue-500/20"
                 >
                     <FiPlus />
-                    <span className="hidden sm:inline ">New Album</span>
+                    <span>New Album</span>
                 </Link>
             </div>
 

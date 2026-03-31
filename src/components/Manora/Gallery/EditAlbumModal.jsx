@@ -102,8 +102,8 @@ const EditAlbumModal = ({ album, isOpen, onClose }) => {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-400 mb-2">Cover Image</label>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-24 h-24 bg-gray-800 rounded-lg overflow-hidden flex-shrink-0 border border-gray-700 relative">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                                    <div className="w-24 h-24 bg-gray-800 rounded-lg overflow-hidden shrink-0 border border-gray-700 relative">
                                         {preview ? (
                                             <img src={preview} alt="Preview" className="w-full h-full object-cover" />
                                         ) : (
@@ -112,8 +112,8 @@ const EditAlbumModal = ({ album, isOpen, onClose }) => {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="flex-col flex gap-2">
-                                        <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-gray-700">
+                                    <div className="flex flex-col gap-2 w-full sm:w-auto">
+                                        <label className="cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-gray-700 w-full sm:w-auto">
                                             <FiUpload size={18} />
                                             <span>{preview ? 'Change Cover' : 'Upload Cover'}</span>
                                             <input
@@ -130,28 +130,28 @@ const EditAlbumModal = ({ album, isOpen, onClose }) => {
                                                     setCoverImage(null);
                                                     setPreview(null);
                                                 }}
-                                                className="px-4 py-2 bg-red-900/40 hover:bg-red-900/60 text-red-200 border border-red-900/50 rounded-lg transition-colors text-sm"
+                                                className="px-4 py-2 bg-red-900/40 hover:bg-red-900/60 text-red-200 border border-red-900/50 rounded-lg transition-colors text-sm w-full sm:w-auto"
                                             >
                                                 Remove Cover Image
                                             </button>
                                         )}
                                     </div>
                                 </div>
-                                <p className="text-xs text-gray-500 mt-2 ml-28">Recommended size: 800x600px.</p>
+                                <p className="text-xs text-gray-500 mt-2 sm:ml-28">Recommended size: 800x600px.</p>
                             </div>
 
-                            <div className="pt-4 flex justify-end gap-3">
+                            <div className="pt-4 flex flex-col-reverse sm:flex-row justify-end gap-3">
                                 <button
                                     type="button"
                                     onClick={onClose}
-                                    className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors"
+                                    className="w-full sm:w-auto px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-medium transition-colors"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className={`px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors flex items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    className={`w-full sm:w-auto justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors flex items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
                                     {loading ? 'Saving...' : 'Save Changes'}
                                 </button>
