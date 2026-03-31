@@ -1,12 +1,12 @@
 .intro-title-1{
-    font-size: 90px;
-    font-family: "Poppins";
+    font-size: clamp(40px, 8vw, 90px);
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
 }
 
 .intro-title-2 {
-    font-size: 80px;
-    font-family: "Poppins";
+    font-size: clamp(36px, 7vw, 80px);
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     color: #fde047;
 }
